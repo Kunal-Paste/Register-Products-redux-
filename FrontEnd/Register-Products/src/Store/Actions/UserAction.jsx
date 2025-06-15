@@ -15,7 +15,8 @@ export const asyncregisteruser = (user) => async (dispatch,getState)=>{
     console.log(res);
     
    } catch (error) {
-    console.log(error);
+    console.log(error); 
+    // updates had been made ...
     
    }
 }
