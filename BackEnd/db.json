@@ -1,0 +1,61 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "kunal",
+      "email": "kunal@example.com",
+      "password": "123456",
+      "isAdmin": true
+    },
+    {
+      "id": "2",
+      "username": "priya",
+      "email": "priya@example.com",
+      "password": "abcdef"
+    },
+    {
+      "id": "Vo9gEzi45z6MMzWXxhlt2",
+      "username": "Shubham Paste",
+      "email": "paste@gmail.com",
+      "password": "123",
+      "isAdmin": false
+    }
+  ],
+  "products": [
+    {
+      "id": "101",
+      "name": "iPhone 14",
+      "price": 79900,
+      "category": "Electronics"
+    },
+    {
+      "id": "102",
+      "name": "Nike Air Max",
+      "price": 7499,
+      "category": "Footwear"
+    }
+  ],
+  "carts": [
+    {
+      "id": "1",
+      "userId": "1",
+      "productId": "101",
+      "quantity": 1
+    },
+    {
+      "id": "2",
+      "userId": "1",
+      "productId": "102",
+      "quantity": 2
+    },
+    {
+      "id": "3",
+      "userId": "2",
+      "productId": "102",
+      "quantity": 1
+    }
+  ],
+  "profile": {
+    "shopName": "MyStore"
+  }
+}
