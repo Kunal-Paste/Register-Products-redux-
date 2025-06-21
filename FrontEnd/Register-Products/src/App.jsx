@@ -4,11 +4,13 @@ import MainRoute from './Routes/MainRoute'
 import axios from './Api/axiosconfig'
 import { useDispatch } from 'react-redux'
 import { asynccurrentuser } from './Store/Actions/UserAction'
+import { asyncloadproduct } from './Store/Actions/ProductAction'
 
 const App = () => {
   const dispatch = useDispatch();
   useEffect(()=>{
     dispatch(asynccurrentuser());
+    dispatch(asyncloadproduct());
   },[])
   // const getproducts = async () => {
   //   try {
