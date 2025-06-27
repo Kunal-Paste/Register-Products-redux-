@@ -1,17 +1,19 @@
 import { nanoid } from 'nanoid';
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import { asyncloginuser } from '../Store/Actions/UserAction';
 
 const Login = () => {
     const {register,reset,handleSubmit} = useForm();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const SubmitLogin = (user) => {
        user.id = nanoid();
        console.log(user);
        dispatch(asyncloginuser(user));
+       navigate('/Home');
     }
     return (
         <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-purple-200">

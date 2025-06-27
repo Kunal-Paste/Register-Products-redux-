@@ -1,5 +1,6 @@
+import { data } from "react-router-dom";
 import axios from "../../Api/axiosconfig";
-import { loaduser } from "../Reducers/UserSlice";
+import { loaduser, removeuser } from "../Reducers/UserSlice";
 
 export const asynccurrentuser = () => async (dispatch, getState) => {
    try {
@@ -30,5 +31,39 @@ export const asyncregisteruser = (user) => async (dispatch, getState) => {
       console.log(error);
       // updates had been made ...
 
+   }
+}
+
+export const asynclogoutuser = () => async (dispatch,getState) => {
+   try {
+      localStorage.removeItem("users");
+      dispatch(removeuser());
+      console.log("user is logout");
+      
+   } catch (error) {
+      console.log(error);
+      
+   }
+}
+
+export const asyncupdateuser = (id,user) => async (dispatch,getState) => {
+   try {
+      const {data} = await axios.patch("/users/" + id,user);
+      console.log(data);
+      localStorage.setItem("users",JSON.stringify(data));
+      dispatch(loaduser(data)); 
+   } catch (error) {
+      console.log(error);
+      
+   }
+}
+
+export const asyncdeleteuser = (id) => async (dispatch,getState) =>{
+   try {
+      await axios.delete('/users/'+id);
+      dispatch(asynclogoutuser());
+   } catch (error) {
+      console.log(error);
+      
    }
 }
